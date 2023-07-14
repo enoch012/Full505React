@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import App2 from "./App2";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import BasicPage from "./bootpractice/BasicPage";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById('boot'));
 root.render(
   <React.StrictMode>
-    <App />
+    {/*<App />*/}
+    {/*<App2 />*/}
+    <BasicPage />
   </React.StrictMode>
 );
 
