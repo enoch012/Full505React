@@ -5,13 +5,15 @@ import App2 from "./App2";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BasicPage from "./bootpractice/BasicPage";
+import App4 from "./App4";
 
 const root = ReactDOM.createRoot(document.getElementById('boot'));
 root.render(
   <React.StrictMode>
     {/*<App />*/}
     {/*<App2 />*/}
-    <BasicPage />
+    {/*<BasicPage />*/}
+    <App4 />
   </React.StrictMode>
 );
 

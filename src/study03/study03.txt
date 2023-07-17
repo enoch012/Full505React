@@ -1,0 +1,49 @@
+0717 / 리액트 state
+
+state : 리액트 컴포넌트의 상태, 리액트 컴포넌트의 수정 가능한 데이터
+- 렌더링이나 데이터 흐름에 사용되는 값만 state에 포함해야함
+- javascript object 타입으로 구성되어 있음
+- state도 직접적인 변경이 불가능함 (setState() 라는 함수를 사용하여 수정)
+- 함수 컴포넌트에서는 hooks의 하나인 useState를 사용하여 수정
+- 클래스 컴포넌트에서는 setState() 함수를 사용함
+
+-----------------------------------------------
+
+* 리액트에서 사용하는 변수 데이터 2개
+props(읽기 전용) - 매개변수 / 부모 컴포넌트에서 자식 컴포넌트로
+state(수정가능) - 현재 데이터 수정
+
+-----------------------------------------------
+
+* 리액트 생명주기
+리액트 컴포넌트가 생성/수정/삭제될 때 실행되는 과정
+- 리액트 생명주기에 따라 3개의 메소드가 존재하고 실행됨
+1) componentDidMount() : 컴포넌트가 생성된 후 실행되는 메소드 (자식 컴포넌트가 호출될 때)
+2) componentDidUpdate() : 컴포넌트의 내용이 수정된 후 실행되는 메소드 (setState() 실행시)
+2-1) render() 단계에서 화면을 그려줌
+2-2) virtualDOM 에서 화면 보여줌
+2-3) setState() - 내용 수정 실행
+2-4) forceUpdate() 화면 강제 업데이트
+
+3) componentWillUnmount() : 컴포넌트가 삭제되기 직전에 실행되는 메소드, 부모 컴포넌트에서 더 이상 자식 컴포넌트를 사용하지 않을 경우
+
+-----------------------------------------------
+
+*Hooks
+: 리액트의 특정 기능이 hook을 걸어서 해당 기능을 사용할 수 있도록 한다는 뜻
+- 함수 컴포넌트에는 원래 존재하지 않았던 생명주기 함수를 사용할 수 있도록 해주는 기능
+- setState 기능을 사용할 수 있도록 해준다.
+- custom hook을 사용하여 사용자가 필요한 기능을 추가로 생성하여 사용할 수 있음
+
+** useState : 클래스 컴포넌트의 setState를 사용할 수 있도록 하는 hook
+사용법 : import React, {useState} from 'react';
+const [변수명, set 변수명] = useState(초기값);
+
+** useEffect : 클래스 컴포넌트의 생명주기 함수를 사용할 수 있도록 하는 hook
+-useEffect로 componentDidMount(), componentDidUpdate, componentWillUnmount() 함수의 기능을 다 사용할 수 있음
+-의존성 배열로 지정된 변수의 값이 변경될 경우 지정한 콜백 함수가 실행됨(componentDidUpdate() 기능)
+-의존성 배열을 빈 배열[]로 지정할 경우 컴포넌트 생성 후 지정된 콜백함수가 한번만 실행됨 (componentDidMount() 기능)
+- useEffect에서 return 하는 함수는 컴포넌트가 해제될 때 실행됨 (componentWillUnmount() 기능)
+사용법 : import React, {useEffect} from 'react';
+useEffect(이펙트 콜백 함수, 의존성 배열);
+
