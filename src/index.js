@@ -6,6 +6,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BasicPage from "./bootpractice/BasicPage";
 import App4 from "./App4";
+import App5 from "./App5";
 
 const root = ReactDOM.createRoot(document.getElementById('boot'));
 root.render(
@@ -13,7 +14,8 @@ root.render(
     {/*<App />*/}
     {/*<App2 />*/}
     {/*<BasicPage />*/}
-    <App4 />
+    {/*<App4 />*/}
+    <App5 />
   </React.StrictMode>
 );
 

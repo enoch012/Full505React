@@ -11,7 +11,7 @@ function VolumeControl(props) {
 
   // useEffect를 사용하여 의존성 배열에 지정된 변수의 값이 변경되면 콜백함수를 실행
   useEffect(() => {
-    document.title = count
+    document.title = `현재 볼륨은 ${count} 입니다`;
   }, [count]);
 
   return(
