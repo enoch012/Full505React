@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bitc.mapper.BoardMapper">
+  <!-- 게시글 리스트 불러오기 -->
+  <select id="selectBoardList" resultType="com.bitc.dto.BoardDto">
+    SELECT num, title, content, id, date_format(postdate, '%Y-%m-%d') AS postdate, visitcount
+    FROM board
+    ORDER BY num desc
+  </select>
+
+  <!-- 게시글 상세 정보 불러오기 -->
+  <select id="selectBoardDetail" parameterType="int" resultType="com.bitc.dto.BoardDto">
+    SELECT num, title, content, id, date_format(postdate, '%Y-%m-%d') AS postdate, visitcount
+    FROM board
+    WHERE num = #{boardNum}
+  </select>
+
+  <!-- 게시글 등록하기-->
+  <insert id="insertBoard" parameterType="com.bitc.dto.BoardDto">
+    INSERT board (title, content, id, postdate)
+    value(#{title}, #{content}, "testuser", NOW())
+  </insert>
+
+  <!-- 게시글 삭제하기 -->
+  <delete id="deleteBoard" parameterType="int">
+    DELETE FROM board
+    WHERE num = #{boardNum}
+  </delete>
+
+  <!-- 게시글 수정/업데이트 -->
+  <!-- Truncated incorrect DOUBLE value 오류가 나서 찾은 수정 방법 : https://byul91oh.tistory.com/575 -->
+  <update id="updateBoard" parameterType="com.bitc.dto.BoardDto">
+    UPDATE board
+    SET title = #{title}, content = #{content}
+    WHERE num = #{num}
+  </update>
+
+  <!-- 조회수 업데이트 -->
+  <update id="visitCountUpdate" parameterType="int">
+    UPDATE board
+    SET visitcount = visitcount + 1
+    WHERE num = #{boardNum}
+  </update>
+</mapper>
