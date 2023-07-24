@@ -35,11 +35,10 @@ function List(props) {
   if(boardList.length > 0){
     listPrint = boardList.map( board => {
       return (
-
         <tr key={board.num}>
           <td>{board.num}</td>
           <td className={'text-start'}>
-            <Link to={'/board/' + board.num}>
+            <Link to={'/board/' + board.num} className={'text-decoration-none text-dark'}>
               {board.title}
             </Link>
           </td>

@@ -37,7 +37,7 @@ function Detail(props) {
       });
   };
 
-  /* 페이지 로드시 해당 게시글 정보 한번 불러오기 */
+  /* 페이지 로드시 자동으로 해당 게시글 정보 불러오기 */
   useEffect(() => {
     getBoardDetail();
   }, []);

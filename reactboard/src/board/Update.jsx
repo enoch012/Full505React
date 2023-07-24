@@ -47,7 +47,7 @@ function Update(props) {
   }
 
   /* 게시글 등록하기 버튼 누르면 서버로 전송 */
-  const submitBoard = () => {
+  const submitUpdateBoard = () => {
     console.log(updateBoard);
     axios.put('http://localhost:8080/board/update', updateBoard)
       .then(res => {
@@ -76,7 +76,7 @@ function Update(props) {
 
               {/* 버튼 */}
               <div className={'text-end'}>
-                <button type={"button"} className={'btn btn-dark px-3 my-3'} onClick={submitBoard}>수정하기</button>
+                <button type={"button"} className={'btn btn-dark px-3 my-3'} onClick={submitUpdateBoard}>수정하기</button>
               </div>
             </form>
           </div>

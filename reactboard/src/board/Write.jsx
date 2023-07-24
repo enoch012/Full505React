@@ -14,7 +14,7 @@ function Write(props) {
 
 
 
-  /* 해당 input 태그 입력 변화에 따라 해당 board.변수 값 새로 입력하기*/
+  /* 해당 input 태그 입력 변화에 따라 해당 board.변수 값 set */
   const changeBoardContent = (e) => {
     const {value, name} = e.target;
     setBoard({
